@@ -1,19 +1,27 @@
 import React, {useMemo} from 'react';
-import {View, StyleSheet, ViewProps} from 'react-native';
+import {View, StyleSheet, ViewProps, Pressable} from 'react-native';
 
 interface CardProps extends ViewProps {
   elevation?: 0 | 1 | 2 | 3 | 4 | 5;
+  onBooking?: () => void;
 }
 
-const Card: React.FC<CardProps> = ({elevation = 1, children, ...props}) => {
+const Card: React.FC<CardProps> = ({
+  elevation = 1,
+  children,
+  onBooking: onPress,
+  ...props
+}) => {
   const elevationStyle = useMemo(() => {
     return styles[`elevation${elevation}`];
   }, [elevation]);
 
   return (
-    <View {...props} style={[styles.container, elevationStyle, props.style]}>
-      {children}
-    </View>
+    <Pressable onPress={onPress}>
+      <View {...props} style={[styles.container, elevationStyle, props.style]}>
+        {children}
+      </View>
+    </Pressable>
   );
 };
 

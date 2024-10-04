@@ -13,16 +13,16 @@ import {
 } from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import {productSlice} from './slices/productSlice';
+import {moviesSlice} from './slices/moviesSlice';
 
-const rootReducer = combineSlices(productSlice);
+const rootReducer = combineSlices(moviesSlice);
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppDispatch = typeof store.dispatch;
 
 const persistConfig: PersistConfig<RootState> = {
   key: 'root',
   storage: AsyncStorage,
-  blacklist: ['products'],
+  blacklist: ['movies'],
 };
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);

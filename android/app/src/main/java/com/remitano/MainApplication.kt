@@ -1,4 +1,4 @@
-package com.ecommerce
+package com.remitano
 
 import android.app.Application
 import com.facebook.react.PackageList

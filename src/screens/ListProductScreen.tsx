@@ -1,7 +1,6 @@
-import React, {useCallback, useRef} from 'react';
+import React, {useCallback} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import ProductTemplate from '../components/templates/ProductTemplate';
-// import NaverMapView from '@mj-studio/react-native-naver-map';
 import {useAppDispatch, useAppSelector} from '../redux/store';
 import {
   addProduct,
@@ -11,7 +10,6 @@ import {
 import {Product} from '../types/product';
 
 const ListProductScreen: React.FC = () => {
-  // const ref = useRef(null);
   const products = useAppSelector(productSlice.selectors.selectProducts);
   const dispatch = useAppDispatch();
 
@@ -31,7 +29,6 @@ const ListProductScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <NaverMapView ref={ref} style={{flex: 1}} /> */}
       <ProductTemplate
         products={products}
         onDelete={_handleDelete}

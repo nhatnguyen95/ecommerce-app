@@ -17,7 +17,7 @@ const BottomTabs: React.FC<any> = () => {
           tabBarLabel: 'Movies',
           tabBarIcon: () => _renderIcon('wrench-outline'),
         }}
-        name="movies"
+        name="Movies"
         component={ListMovieScreen}
       />
       <Tab.Screen
@@ -25,7 +25,7 @@ const BottomTabs: React.FC<any> = () => {
           tabBarLabel: 'Favorites',
           tabBarIcon: () => _renderIcon('bell-ring-outline'),
         }}
-        name="favorites"
+        name="Favorites"
         component={ListFavoriteScreen}
       />
       <Tab.Screen
@@ -33,7 +33,7 @@ const BottomTabs: React.FC<any> = () => {
           tabBarLabel: 'Booked',
           tabBarIcon: () => _renderIcon('cog-outline'),
         }}
-        name="booked"
+        name="Booked"
         component={ListBookedScreen}
       />
     </Tab.Navigator>

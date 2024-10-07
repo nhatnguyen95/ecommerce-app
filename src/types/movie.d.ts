@@ -4,4 +4,5 @@ export type Movie = {
   description: string;
   imageUrl: string;
   thumbnailUrl: string;
+  isFavorite?: boolean;
 };

@@ -4,10 +4,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import BottomTabs from './TabNavigation';
 import {
   NavigationProp,
+  RouteProp,
   useNavigation,
   useRoute,
 } from '@react-navigation/native';
-import {RootRouteProps, RootStackParamList} from 'types/navigation';
+import {RootStackParamList} from 'types/navigation';
 import MovieDetailScreen from 'screens/MovieDetailScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -29,12 +30,9 @@ export const useAppNavigation = () => {
   return navigation;
 };
 
-export function useAppRoute<
-  T extends keyof RootStackParamList,
->(): RootRouteProps<T> {
-  const route = useRoute<RootRouteProps<T>>();
-
-  return route as RootRouteProps<T>;
+export function useAppRoute() {
+  const route = useRoute<RouteProp<RootStackParamList>>();
+  return route;
 }
 
 export default RootNavigation;

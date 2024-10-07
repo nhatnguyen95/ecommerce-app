@@ -9,7 +9,8 @@ interface MovileListProps {
   movies: Movie[];
   refreshing: boolean;
   onRefresh: () => void;
-  onBooking: (item: Movie) => void;
+  onBooking?: (id: number) => void;
+  onFavorite?: (id: number, value: boolean) => void;
 }
 
 const MovieList: React.FC<MovileListProps> = ({
@@ -17,9 +18,17 @@ const MovieList: React.FC<MovileListProps> = ({
   refreshing,
   onRefresh,
   onBooking,
+  onFavorite,
 }) => {
   const _renderItem = ({item}: {item: Movie}) => {
-    return <MovieCard style={styles.item} movie={item} onBooking={onBooking} />;
+    return (
+      <MovieCard
+        style={styles.item}
+        movie={item}
+        onBooking={onBooking}
+        onFavorite={onFavorite}
+      />
+    );
   };
 
   return (
